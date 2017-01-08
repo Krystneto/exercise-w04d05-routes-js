@@ -30,11 +30,11 @@ app.get('/characters/queen', function(req, res){
 })
 
 app.get('/elevator', function(req, res){
-  var html = '<form action="/elevator"><input type="text" name="floor"><input type="submit" value="Go!"></form>';
+  var html = '<form><input type="text" name="number"><input type="submit" value="Go!"></form>';
   res.send( html );
 })
 
-app.get('/elevator?floor', function(req, res) {
+app.get('/elevator?:floor', function(req, res) {
   var number = req.query.floor;
   var floor = req.params.floor;
   res.redirect('/floor');
@@ -43,10 +43,10 @@ app.get('/elevator?floor', function(req, res) {
 
 // var html = '<h1>Floor number is ' + floor + '</h1>';
 
-// app.get('/characters/cheshire_cat', function(req,res){
-//   var html = '<form><input type="text"><br><input type="radio" name="radio" value="Show" checked>Show <input type="radio" name="radio" value="Hide">Hide <input type="submit" value="submit"></form>'
-//   res.send( html );
-// })
+app.get('/characters/cheshire_cat', function(req,res){
+  var html = '<form><input type="text"><br><input type="radio" name="radio" value="Show" checked>Show <input type="radio" name="radio" value="Hide">Hide <input type="submit" value="submit"></form>'
+  res.send( html );
+})
 
 
 
